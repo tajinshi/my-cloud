@@ -3,25 +3,23 @@ server:
 spring:
   application:
     name: demo-provider
-#eureka¼¯Èº´î½¨
+#eurekaé›†ç¾¤æ­å»º
 eureka:
   client:
     service-url:
- #     defaultZone: http://localhost:8080/eureka,http://localhost:8081/eureka,http://localhost:8082/eureka
+      #     defaultZone: http://localhost:8080/eureka,http://localhost:8081/eureka,http://localhost:8082/eureka
       defaultZone: http://localhost:8084/eureka
- #×¢²áipµ½eurekaÉÏ
   instance:
-    prefer-ip-address: true
-    status-page-url-path: /actuator/info #ÅäÖÃ½¡¿µ¼ì²é·ÃÎÊÂ·¾¶
+    prefer-ip-address: true  #æ³¨å†Œipåˆ°eurekaä¸Š
+    status-page-url-path: /actuator/info #é…ç½®å¥åº·æ£€æŸ¥è®¿é—®è·¯å¾„
     health-check-url-path: /actuator/health
     home-page-url-path: /
-#½¡¿µ¼ì²éactutorµÄÅäÖÃ
+#å¥åº·æ£€æŸ¥actutorçš„é…ç½®
 management:
   endpoints:
     web:
       exposure:
-        exclude: refresh # ¹«¿ªËùÓĞ¶Ëµã£¬Ä¬ÈÏÖ»ÓĞ¶Ëµã/healthºÍ/info¶ËµãÊÇ±©Â¶µÄ
-  #Õ¹Ê¾/actuator/health½¡¿µ¼ì²éÏêÇé
+        exclude: refresh # å…¬å¼€æ‰€æœ‰ç«¯ç‚¹ï¼Œé»˜è®¤åªæœ‰ç«¯ç‚¹/healthå’Œ/infoç«¯ç‚¹æ˜¯æš´éœ²çš„
   endpoint:
     health:
-      show-details: always #healthÊÇ·ñÏÔÊ¾Ï¸½Ú£¬¿ÉÑ¡never,always,when-authenticated
+      show-details: always #healthæ˜¯å¦æ˜¾ç¤ºç»†èŠ‚ï¼Œå¯é€‰never,always,when-authenticated
