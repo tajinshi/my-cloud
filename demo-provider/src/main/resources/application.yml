@@ -1,0 +1,27 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: demo-provider
+#eureka集群搭建
+eureka:
+  client:
+    service-url:
+ #     defaultZone: http://localhost:8080/eureka,http://localhost:8081/eureka,http://localhost:8082/eureka
+      defaultZone: http://localhost:8084/eureka
+ #注册ip到eureka上
+  instance:
+    prefer-ip-address: true
+    status-page-url-path: /actuator/info #配置健康检查访问路径
+    health-check-url-path: /actuator/health
+    home-page-url-path: /
+#健康检查actutor的配置
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: refresh # 公开所有端点，默认只有端点/health和/info端点是暴露的
+  #展示/actuator/health健康检查详情
+  endpoint:
+    health:
+      show-details: always #health是否显示细节，可选never,always,when-authenticated
