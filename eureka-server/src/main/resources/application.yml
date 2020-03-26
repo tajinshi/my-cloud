@@ -4,7 +4,7 @@ spring:
     name: eureka-server
 #默认启用配置文件是peer1
   profiles:
-    active: peer1
+    active: one
 #指定是否注册IP到eureka server
 eureka:
   instance:
