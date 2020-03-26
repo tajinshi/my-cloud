@@ -11,6 +11,9 @@ eureka:
        defaultZone: http://localhost:8084/eureka
   instance:
     prefer-ip-address: true #注册ip到eureka
+    home-page-url-path: /       #配置健康检查访问路径
+    health-check-url-path: /actuator/health
+    status-page-url-path: /actuator/info
 #feign的配置
 feign:
   hystrix:
@@ -21,3 +24,11 @@ feign:
         connectTimeout: 5000
         readTimeout: 5000
         loggerLevel: full #日志级别
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: refresh # *公开所有端点，默认只有端点/health和/info端点是暴露的
+  endpoint:
+    health:
+      show-details: always
