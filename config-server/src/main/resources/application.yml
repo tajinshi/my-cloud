@@ -12,8 +12,10 @@ spring:
           uri: https://github.com/tajinshi/application-config.git
           username: tajinshi
           password: tjs920930
-          search-paths: eureka_server #git配置路径，不可用中划线，多个目录用“，”拆分
+          search-paths: demo_provider #git配置路径，不可用中划线，多个目录用“，”拆分
           skip-ssl-validation: true  #必须设置否则报bug.could not be stablished because of SSL problems
+          force-pull: true #强制拉取覆盖
+          clone-on-start: true #启动时强制拉取远程代码
 
 
 #配置eureka
