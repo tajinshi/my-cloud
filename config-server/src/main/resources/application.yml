@@ -1,0 +1,26 @@
+server:
+  port: 8070
+spring:
+  application:
+    name: config-server
+#config server配置
+  cloud:
+    config:
+      label: master #master分支
+      server:
+        git:
+          uri: https://github.com/tajinshi/application-config.git
+          username: tajinshi
+          password: tjs920930
+          search-paths: eureka_server #git配置路径，不可用中划线，多个目录用“，”拆分
+          skip-ssl-validation: true  #必须设置否则报bug.could not be stablished because of SSL problems
+
+
+#配置eureka
+eureka:
+  client:
+    service-url:
+ #     defaultZone: http://localhost:8080/eureka,http://localhost:8081/eureka,http://localhost:8082/eureka #eureka集群配置
+       defaultZone: http://localhost:8084/eureka
+  instance:
+    prefer-ip-address: true #注册ip到eureka
