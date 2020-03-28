@@ -1,0 +1,27 @@
+server:
+  port: 8060
+spring:
+  application:
+    name: zuul
+#解决乱码问题
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+eureka:
+  client:
+    service-url:
+#      defalutZone: http://localhost:8080/eureka,http://localhost:8081/eureka,http://localhost:8082/eureka
+       defaultZone: http://localhost:8084/eureka
+  instance:
+    prefer-ip-address: true #注册ip到eureka
+zuul:
+  routes:
+    api-a: #随便起的一个名字
+      path: /provider/**
+      service-id: demo-provider
+      sensitiveHeaders:  #请求头，cookie 不过滤直接传送到下游服务
+    api-b:
+      path: /consumer/**
+      service-id: demo-comsumer
