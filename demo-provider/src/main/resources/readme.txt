@@ -5,3 +5,13 @@ eureka.instance.status-page-url-path=/actuator/info
 eureka.instance.health-check-url-path=/actuator/health
 eureka.instance.home-page-url-path=/
 management.endpoints.web.exposure.include=*
+
+1. spring cloud整合Eureka,config,actuator
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
